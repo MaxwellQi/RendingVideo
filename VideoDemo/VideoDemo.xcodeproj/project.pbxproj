@@ -15,6 +15,9 @@
 		6D4936051E4D925A00573A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4936031E4D925A00573A5D /* LaunchScreen.storyboard */; };
 		6D4936101E4D925A00573A5D /* VideoDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D49360F1E4D925A00573A5D /* VideoDemoTests.m */; };
 		6D49361B1E4D925A00573A5D /* VideoDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D49361A1E4D925A00573A5D /* VideoDemoUITests.m */; };
+		6D49362B1E4D9C9300573A5D /* ShowRendingVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4936291E4D9C9300573A5D /* ShowRendingVideoController.m */; };
+		6D49362C1E4D9C9300573A5D /* ShowRendingVideoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D49362A1E4D9C9300573A5D /* ShowRendingVideoController.xib */; };
+		6D49362F1E4D9FAA00573A5D /* VideoRendingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D49362E1E4D9FAA00573A5D /* VideoRendingOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		6D4936161E4D925A00573A5D /* VideoDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D49361A1E4D925A00573A5D /* VideoDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDemoUITests.m; sourceTree = "<group>"; };
 		6D49361C1E4D925A00573A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D4936281E4D9C9300573A5D /* ShowRendingVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowRendingVideoController.h; sourceTree = "<group>"; };
+		6D4936291E4D9C9300573A5D /* ShowRendingVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowRendingVideoController.m; sourceTree = "<group>"; };
+		6D49362A1E4D9C9300573A5D /* ShowRendingVideoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowRendingVideoController.xib; sourceTree = "<group>"; };
+		6D49362D1E4D9FAA00573A5D /* VideoRendingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRendingOperation.h; sourceTree = "<group>"; };
+		6D49362E1E4D9FAA00573A5D /* VideoRendingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRendingOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,11 @@
 				6D4935F91E4D925A00573A5D /* AppDelegate.m */,
 				6D4935FB1E4D925A00573A5D /* ViewController.h */,
 				6D4935FC1E4D925A00573A5D /* ViewController.m */,
+				6D49362D1E4D9FAA00573A5D /* VideoRendingOperation.h */,
+				6D49362E1E4D9FAA00573A5D /* VideoRendingOperation.m */,
+				6D4936281E4D9C9300573A5D /* ShowRendingVideoController.h */,
+				6D4936291E4D9C9300573A5D /* ShowRendingVideoController.m */,
+				6D49362A1E4D9C9300573A5D /* ShowRendingVideoController.xib */,
 				6D4935FE1E4D925A00573A5D /* Main.storyboard */,
 				6D4936011E4D925A00573A5D /* Assets.xcassets */,
 				6D4936031E4D925A00573A5D /* LaunchScreen.storyboard */,
@@ -251,6 +264,7 @@
 			files = (
 				6D4936051E4D925A00573A5D /* LaunchScreen.storyboard in Resources */,
 				6D4936021E4D925A00573A5D /* Assets.xcassets in Resources */,
+				6D49362C1E4D9C9300573A5D /* ShowRendingVideoController.xib in Resources */,
 				6D4936001E4D925A00573A5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D49362F1E4D9FAA00573A5D /* VideoRendingOperation.m in Sources */,
 				6D4935FD1E4D925A00573A5D /* ViewController.m in Sources */,
 				6D4935FA1E4D925A00573A5D /* AppDelegate.m in Sources */,
+				6D49362B1E4D9C9300573A5D /* ShowRendingVideoController.m in Sources */,
 				6D4935F71E4D925A00573A5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ShowRendingVideoController.h"
 
 @interface ViewController ()
 @property (nonatomic,strong) AVCaptureSession *avCaptureSession;
@@ -14,9 +15,19 @@
 @property (nonatomic,strong) AVCaptureDeviceInput *captureDeviceInput;
 @property (nonatomic,strong) AVCaptureVideoDataOutput *captureVideoDataOutput;
 @property (nonatomic,strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
+
+@property (nonatomic,strong) ShowRendingVideoController *rendingVideoController;
 @end
 
 @implementation ViewController
+
+- (ShowRendingVideoController *)rendingVideoController
+{
+    if (!_rendingVideoController) {
+        _rendingVideoController = [[ShowRendingVideoController alloc] initWithNibName:@"ShowRendingVideoController" bundle:nil];
+    }
+    return _rendingVideoController;
+}
 
 - (AVCaptureSession *)avCaptureSession
 {
@@ -100,7 +111,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"%s",__func__);
+    [self presentViewController:self.rendingVideoController animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
