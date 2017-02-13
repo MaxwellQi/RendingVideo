@@ -18,6 +18,8 @@
 		6D49362B1E4D9C9300573A5D /* ShowRendingVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4936291E4D9C9300573A5D /* ShowRendingVideoController.m */; };
 		6D49362C1E4D9C9300573A5D /* ShowRendingVideoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D49362A1E4D9C9300573A5D /* ShowRendingVideoController.xib */; };
 		6D49362F1E4D9FAA00573A5D /* VideoRendingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D49362E1E4D9FAA00573A5D /* VideoRendingOperation.m */; };
+		6D49363A1E5188C600573A5D /* OpenGLView20.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4936391E5188C600573A5D /* OpenGLView20.m */; };
+		6D4936431E519FF700573A5D /* YUVDataQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D4936421E519FF700573A5D /* YUVDataQueue.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,10 @@
 		6D49362A1E4D9C9300573A5D /* ShowRendingVideoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowRendingVideoController.xib; sourceTree = "<group>"; };
 		6D49362D1E4D9FAA00573A5D /* VideoRendingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRendingOperation.h; sourceTree = "<group>"; };
 		6D49362E1E4D9FAA00573A5D /* VideoRendingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRendingOperation.m; sourceTree = "<group>"; };
+		6D4936381E5188C600573A5D /* OpenGLView20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView20.h; sourceTree = "<group>"; };
+		6D4936391E5188C600573A5D /* OpenGLView20.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView20.m; sourceTree = "<group>"; };
+		6D4936411E519FF700573A5D /* YUVDataQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUVDataQueue.h; sourceTree = "<group>"; };
+		6D4936421E519FF700573A5D /* YUVDataQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YUVDataQueue.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +115,13 @@
 		6D4935F41E4D925A00573A5D /* VideoDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6D4936371E5188C600573A5D /* OpenGLView */,
 				6D4935F81E4D925A00573A5D /* AppDelegate.h */,
 				6D4935F91E4D925A00573A5D /* AppDelegate.m */,
 				6D4935FB1E4D925A00573A5D /* ViewController.h */,
 				6D4935FC1E4D925A00573A5D /* ViewController.m */,
+				6D4936411E519FF700573A5D /* YUVDataQueue.h */,
+				6D4936421E519FF700573A5D /* YUVDataQueue.mm */,
 				6D49362D1E4D9FAA00573A5D /* VideoRendingOperation.h */,
 				6D49362E1E4D9FAA00573A5D /* VideoRendingOperation.m */,
 				6D4936281E4D9C9300573A5D /* ShowRendingVideoController.h */,
@@ -151,6 +160,15 @@
 				6D49361C1E4D925A00573A5D /* Info.plist */,
 			);
 			path = VideoDemoUITests;
+			sourceTree = "<group>";
+		};
+		6D4936371E5188C600573A5D /* OpenGLView */ = {
+			isa = PBXGroup;
+			children = (
+				6D4936381E5188C600573A5D /* OpenGLView20.h */,
+				6D4936391E5188C600573A5D /* OpenGLView20.m */,
+			);
+			path = OpenGLView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,10 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D49362F1E4D9FAA00573A5D /* VideoRendingOperation.m in Sources */,
+				6D49363A1E5188C600573A5D /* OpenGLView20.m in Sources */,
 				6D4935FD1E4D925A00573A5D /* ViewController.m in Sources */,
 				6D4935FA1E4D925A00573A5D /* AppDelegate.m in Sources */,
 				6D49362B1E4D9C9300573A5D /* ShowRendingVideoController.m in Sources */,
 				6D4935F71E4D925A00573A5D /* main.m in Sources */,
+				6D4936431E519FF700573A5D /* YUVDataQueue.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

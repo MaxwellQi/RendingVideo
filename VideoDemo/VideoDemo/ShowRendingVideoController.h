@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShowRendingVideoController : UIViewController
-
+@property (nonatomic,strong)NSMutableArray *yuvContainer;
 @end

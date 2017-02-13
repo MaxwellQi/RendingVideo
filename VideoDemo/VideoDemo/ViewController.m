@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ShowRendingVideoController.h"
+#import "OpenGLView20.h"
 
 @interface ViewController ()
 @property (nonatomic,strong) AVCaptureSession *avCaptureSession;
@@ -17,6 +18,9 @@
 @property (nonatomic,strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 
 @property (nonatomic,strong) ShowRendingVideoController *rendingVideoController;
+@property (nonatomic,strong) OpenGLView20 *videoView;
+
+@property (nonatomic,assign) int isShowRendingVideoController;
 @end
 
 @implementation ViewController
@@ -38,8 +42,8 @@
         _captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:_captureDevice error:&error];
         _captureVideoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
         
-        if ([_avCaptureSession canSetSessionPreset:AVCaptureSessionPreset1280x720]) {
-            _avCaptureSession.sessionPreset = AVCaptureSessionPreset1280x720;
+        if ([_avCaptureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {
+            _avCaptureSession.sessionPreset = AVCaptureSessionPreset640x480;
         }
         
         if ([_avCaptureSession canAddInput:_captureDeviceInput]) {
@@ -77,6 +81,11 @@
     
     [layer insertSublayer:self.captureVideoPreviewLayer atIndex:0];
     //    [layer insertSublayer:self.captureVideoPreviewLayer above:self.view.layer];
+    
+    _videoView = [[OpenGLView20 alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, self.view.frame.size.height - 40)];
+    [_videoView setVideoSize:640 height:480];
+    [self.view addSubview:_videoView];
+
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -88,6 +97,7 @@
 {
     [super viewDidAppear:animated];
     [self.avCaptureSession startRunning];
+    self.isShowRendingVideoController = 0;
 }
 
 -(AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition )position{
@@ -106,7 +116,49 @@
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
        fromConnection:(AVCaptureConnection *)connection
 {
+
     
+    // 获取yuv数据
+    // 通过CMSampleBufferGetImageBuffer方法，获得CVImageBufferRef。
+    // 这里面就包含了yuv420(NV12)数据的指针
+    CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    
+    //图像宽度（像素）
+    size_t pixelWidth = CVPixelBufferGetWidth(pixelBuffer);
+    //图像高度（像素）
+    size_t pixelHeight = CVPixelBufferGetHeight(pixelBuffer);
+    
+    //yuv中的y所占字节数
+    size_t y_size = pixelWidth * pixelHeight;
+    //yuv中的uv所占的字节数
+    size_t uv_size = y_size / 2;
+    
+    
+    uint8_t *yuv_frame = malloc(uv_size + y_size);
+    
+    //获取CVImageBufferRef中的y数据
+    uint8_t *y_frame = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    memcpy(yuv_frame, y_frame, y_size);
+    
+    //获取CMVImageBufferRef中的uv数据
+    uint8_t *uv_frame = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    memcpy(yuv_frame + y_size, uv_frame, uv_size);
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    
+    NSData *data = [NSData dataWithBytesNoCopy:yuv_frame length:y_size + uv_size];
+    
+    
+    //
+    UInt8 * pFrameRGB = (UInt8 *)[data bytes];
+    
+    [_videoView displayYUV420pData:pFrameRGB width:640 height:480];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.isShowRendingVideoController = 1;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
