@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OpenGLView20.h"
 
 @interface ShowRendingVideoController : UIViewController
-@property (nonatomic,strong)NSMutableArray *yuvContainer;
+@property (nonatomic,strong) OpenGLView20 *videoView;
 @end
